@@ -30,3 +30,9 @@ This project is to demonstrate an end to end implementation of Continuous Integr
 streamlit run <file name>
 streamlit run app.py
 ```
+
+## Docs:
+
+- Github Action : https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+- yaml docs : https://yaml.org/spec/1.2.2/
+- Streamlit : https://docs.streamlit.io/

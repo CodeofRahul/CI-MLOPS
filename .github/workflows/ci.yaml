@@ -1,0 +1,31 @@
+name: CI Workflow                           # Workflow name
+
+on:                                         # Workflow trigger on
+  push:                                     # Trigger on push event
+    branches:                               # Specify branch to trigger on
+      - main                                # Trigger on main branch
+  pull_request:                             # Trigger on pull request event
+    branches:                               # Specify branch to trigger on
+      - main                                # Trigger on main branch
+
+jobs:                                       # Workflow jobs
+  test:                                     # Job name
+    runs-on: ubuntu-latest                  # Run on latest Ubuntu
+
+    steps:                                  # Job steps
+    - name: Checkout code                   # Checkout code
+      uses: actions/checkout@v2             # Use checkout action
+
+    - name: Set up Python                   # Set up Python
+      uses: actions/setup-python@v2         # Use setup-python action
+      with:                                 # Specify Python version
+        python-version: '3.9'               # Use Python 3.9
+
+    - name: Install dependencies            # Install dependencies
+      run: |                                # Run command
+        python -m pip install --upgrade pip # Upgrade pip
+        pip install pytest streamlit        # Install dependencies
+
+    - name: Run tests                       # Run tests
+      run: |                                # Run command
+        pytest _test.py                     # Run tests
